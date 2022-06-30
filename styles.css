@@ -142,7 +142,6 @@ input[type="submit"]:hover{
     .main-container{
         display: flex;
         width: 1114px;
-        border: 1px solid red;
     }
 
     h1{
@@ -157,7 +156,6 @@ input[type="submit"]:hover{
         text-align: left;
     }
     section:nth-child(1){
-        border: 1px solid blue;
         padding-top: 160px;
         width: 570px;
     }

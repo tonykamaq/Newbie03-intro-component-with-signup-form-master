@@ -15,7 +15,7 @@
     validateEmpty(firstName.value, firstName, firstNameError, 'First Name cannot be empty');
     validateEmpty(lastName.value, lastName, lastNameError, 'Last Name cannot be empty');
     validateEmail(emailAddress.value, emailAddress, emailAddressError, '');
-    validateEmpty(password.value, password, passError, 'Password cannot be empty');
+    validatePassword(password.value, password, passError, '');
  });
 
  function validateEmail(valueInput, divInput, divError){
@@ -23,8 +23,18 @@
         if (regExp.test(valueInput) == true){
             hideError(divInput, divError)
         }else{
-            showError(divInput, divError, 'Looks like this is not an email')
+            showError(divInput, divError, 'Looks like this is not an email. "email@example.com"')
         }
+}
+
+ function validatePassword(valueInput, divInput, divError){
+    let regExpPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm
+       if (regExpPassword.test(valueInput) == true){
+           hideError(divInput, divError)
+       }else{
+           showError(divInput, divError, 'Must contain at least 8 characters, 1 uppercase letter, 1 lowercase letter and 1 number')
+       }
+
 }
 
  function validateEmpty(valueInput, divInput, divError, nameInput){
